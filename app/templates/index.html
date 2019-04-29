@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+  {% block content %}
+    <h1>Home</h1>
+    <h3>Name being pased in: {{ name }}</h3>
+    <!-- <h3>List of characters: {{ characters }}</h3> -->
+
+    <h5>Game of Thrones Characters</h5>
+    <ul>
+      {% for k, v in characters.items() %}
+        {% if k == 'males' %}
+          {% for name in v %}
+            <li class="male">
+              <a href="{{ url_for('profile', name=name, gender=k)}}">{{ name }}</a>
+            </li>
+          {% endfor %}
+        {% else %}
+          {% for name in v %}
+          <li class="female">
+            <a href="{{ url_for('profile', name=name, gender=k)}}">{{ name }}</a>
+          </li>
+          {% endfor %}
+        {% endif %}
+      {% endfor %}
+    </ul>
+  {% endblock %}

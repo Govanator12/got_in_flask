@@ -1,0 +1,14 @@
+.male {
+  color: blue;
+}
+
+.female {
+  color: red;
+}
+
+.profile-pic {
+  width: 80vw;
+  display: block;
+  margin: 25px auto;
+  max-height: 100px;
+}

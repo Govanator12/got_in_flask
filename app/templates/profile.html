@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+  <h1>{{ name }} - {{ gender.title().strip('s') }}</h1>
+
+  <h5>Character Details</h5>
+    {% if info != {} %}
+      {% for k, v in info.items() %}
+        {% if k =='prof_pic' %}
+          <img class="profile-pic" src="{{ v }}" alt="Profile Picture">
+        {% else %}
+          <p><b>{{ k.title() }}</b> - {{ v }}</p>
+        {% endif %}
+      {% endfor %}
+      {% else %}
+        <p>This characer has no information.</p>
+    {% endif %}
+  {% endblock %}
